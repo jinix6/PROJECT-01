@@ -1,0 +1,612 @@
+<head>
+  <html lang="en">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FF CRAFTLAND</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+</head>
+<style>
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+  #background 
+      {
+    background: white 	no-repeat center center;	
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 99999;
+    opacity: 1;
+       }
+  @keyframes fade1
+       {
+  from {
+    opacity: 1;
+    
+       }
+  to   {
+    opacity: 0;
+    visibility: hidden;
+       }
+       }
+  @keyframes blurfade 
+       {
+  0%   {  
+    filter: blur(20px);
+    transform: scale(0.7);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+       }
+
+  20%  {
+    filter: blur(15px);
+       }
+  40%  {
+    filter: blur(10px);
+       }
+  60%  {
+    filter: blur(5px);
+       }
+  100% {
+  filter: blur(0px);
+       }
+       }
+  .lds-ring 
+       {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+       }
+  .lds-ring div 
+       {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    margin: 8px;
+    border: 8px solid #FFBA00;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #FFBA00 transparent transparent transparent;
+       }
+  .lds-ring div:nth-child(1) 
+       {
+    animation-delay: -0.45s;
+       }
+  .lds-ring div:nth-child(2) 
+       {
+    animation-delay: -0.3s;
+       }
+  .lds-ring div:nth-child(3) 
+       {
+    animation-delay: -0.15s;
+       }
+@keyframes lds-ring 
+       {
+  0%   {
+    transform: rotate(0deg);
+       }
+  100% {
+    transform: rotate(360deg);
+       }
+       }
+#img   {
+    background: white  url("g.gif");
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50pt;
+    height: 50pt;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+       }
+body, html
+       { 
+	  height: 100%;
+	  margin: 0;
+	  background-image: url("b.jpg");
+	  background-size: cover;
+       }
+.h1    {
+     width: 100%;
+     color: #FFB900;
+     font-size: 30pt;
+     text-align: center;
+     font-family: 'GFF Devanagari';
+     position: absolute;
+     top: 38%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+     user-select: none; /* Standard syntax */
+	      }
+@font-face 
+        {
+    font-family: 'GFF Devanagari';
+    src: url('GFFDevanagari.woff2') format('woff2'),
+         url('GFFDevanagari.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+        }
+.h2     {
+	  width: 100%;
+    color: #FFB900;
+    font-size: 10pt;
+    text-align: center;
+    font-family: 'GFF Devanagari';
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+      	}
+h3      {
+	  color: #FFB900;
+    font-size: 10pt;
+    text-align: center;
+    font-family: 'GFF Devanagari';
+	  position: absolute;
+    top: 95%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+	      }
+#h9{
+	  position: absolute;
+    top: 95%;
+    left: 50%;
+   -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-family: 'GFF Devanagari';
+    background-color: none;
+    border: none;
+    color: #FFB900;
+    text-align: center;
+    font-size: 10pt;
+    text-decoration: none;
+    display: inline-block;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+        	}
+.img1     {
+	  position: absolute;
+    top: 50%;
+    width: 50%;
+        	}
+.img2     {
+	  display: block;
+	  margin-left: auto;
+	  margin-right: auto;
+	  width: 30%;
+	  position: absolute;
+	  top: 3%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+         	}
+.img3     {
+	  display: block;
+	  margin-left: auto;
+	  margin-right: auto;
+	  width: 90%;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 2%;
+          }	
+h3        {
+	  color: #FFB900;
+    font-size: 10p;
+    text-align: center;
+    font-family: 'GFF Devanagari';
+   -webkit-user-select: none; /* Safari */
+   -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+        	}
+@keyframes play 
+          {
+ from     {
+    filter: blur(24px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 16px 30px;
+    color: var(--color);
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    text-shadow: 0 0 15px var(--color);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    transition: 0.5s;
+    z-index: 1;
+    font-size: 30pt;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+            }
+  to        {
+    filter: blur(0px);
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 16px 30px;
+    color: var(--color);
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    text-shadow: 0 0 15px var(--color);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    transition: 0.5s;
+    z-index: 1;
+    font-size: 30pt;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+     user-select: none; /* Standard syntax */
+            }
+            }
+.play_button 
+            {
+    filter: blur(0px);
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 16px 30px;
+    color: var(--color);
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    text-shadow: 0 0 15px var(--color);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    transition: 0.5s;
+    z-index: 1;
+    font-size: 30pt;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+   -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+            }
+.play_button:hover 
+            {
+    color: #fff;
+    border: 2px solid rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0px var(--color);
+            }
+.play_button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color);
+  z-index: -1;
+  transform: scale(0);
+  transition: 0.5s;
+}
+
+.play_button:hover::before {
+  transform: scale(1);
+  transition-delay: 0.5s;
+  box-shadow: 0 0 10px var(--color),
+    0 0 30px var(--color),
+    0 0 60px var(--color);
+}
+
+.play_button span {
+  position: absolute;
+  background: var(--color);
+  pointer-events: none;
+  border-radius: 2px;
+  box-shadow: 0 0 10px var(--color),
+    0 0 20px var(--color),
+    0 0 30px var(--color),
+    0 0 50px var(--color),
+    0 0 100px var(--color);
+  transition: 0.5s ease-in-out;
+  transition-delay: 0.25s;
+}
+
+.play_button:hover span {
+  opacity: 0;
+  transition-delay: 0s;
+}
+
+.play_button span:nth-child(1),
+.play_button span:nth-child(3) {
+  width: 40px;
+  height: 4px;
+}
+
+.play_button:hover span:nth-child(1),
+.play_button:hover span:nth-child(3) {
+  transform: translateX(0);
+}
+
+.play_button span:nth-child(2),
+.play_button span:nth-child(4) {
+  width: 4px;
+  height: 40px;
+}
+
+.play_button:hover span:nth-child(1),
+.play_button:hover span:nth-child(3) {
+  transform: translateY(0);
+}
+
+.play_button span:nth-child(1) {
+  top: calc(50% - 2px);
+  left: -50px;
+  transform-origin: left;
+}
+
+.play_button:hover span:nth-child(1) {
+  left: 50%;
+}
+
+.play_button span:nth-child(3) {
+  top: calc(50% - 2px);
+  right: -50px;
+  transform-origin: right;
+}
+
+.play_button:hover span:nth-child(3) {
+  right: 50%;
+}
+
+.play_button span:nth-child(2) {
+  left: calc(50% - 2px);
+  top: -50px;
+  transform-origin: top;
+}
+
+.play_button:hover span:nth-child(2) {
+  top: 50%;
+}
+
+.play_button span:nth-child(4) {
+  left: calc(50% - 2px);
+  bottom: -50px;
+  transform-origin: bottom;
+}
+
+.play_button:hover span:nth-child(4 ) {
+  bottom: 50%;
+}
+
+
+
+.igbtn{
+  width: 10%;
+  height: 5%;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: url(i.png);
+  background-size: cover;
+  border-style: none;
+  transition: all 0.3s;
+z-index: 1;
+}
+
+.igbtn:active {
+
+
+width: 10%;
+  height: 5%;
+  position: absolute;
+  top: 89%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(1.1);
+  background: url(i.png);
+  background-size: cover;
+  border-style: none;
+  
+  
+}
+
+.blur{
+  
+  width: 10%;
+  height: 5%;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: url(i.png);
+  background-size: cover;
+  border-style: none;
+  transition: all 0.2s;
+      filter: blur(10px);
+opacity: 0.7;
+  
+}
+
+  
+  
+  
+</style>
+
+
+
+
+<body onload="loading143()">
+  
+<div id="background">
+  
+<div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+</div>
+
+    <H1 class="h1"  id="blur1" >FF CRAFTLAND 1VS1</H1>
+    
+      <h2 class="h2" id="blur2">UNLIMITED AMMO , UNLIMITED GLOO , QUICK  EP CONVERSION  AND MORE</h2> 
+      
+      
+      
+    
+       
+         <div>
+<button onclick="openig()" id="ig2" class="igbtn"></button>
+  <div id="ig1" class="blur"></div>
+    </div>
+       
+       
+       
+       
+       
+       
+       
+<div class="container">
+  <button onclick="myFunction()" class="play_button" style="--color:#FFB900;">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    PLAY
+  </button>
+</div>
+  
+       
+       
+       
+       
+       
+       
+      <img id="img1" class="img1" src="https://freefiremobile-a.akamaihd.net/common/web_event/ffsharenew/images/decorate.png" alt="img1">
+      <img id="img2" class="img2" src="https://dl.dir.freefiremobile.com/common/web_event/common/images/FFM_white.png" alt="img2">
+      
+      
+      
+<h9 id="h9">DESIGN BY IG-JINXX6_6 🎮🔫🏆</h9>
+      
+      
+        <h3 id="h3">IN GAME NAME - X2 LIPAN</h3>
+       <img id="img3" class="img3" src="ff.png" alt="img3">
+       
+       
+       
+    
+       
+       
+  <script>
+    
+    
+    $(document).ready(function() {
+          $("body").on("contextmenu", function(e) {
+              return false;
+            });
+        });
+
+
+ 
+  function loading143() {
+   
+
+   
+   
+
+ var t = document.getElementById("background");
+    t.style.animation = "fade1 1s 1 forwards";
+
+      var blur1 = document.getElementById("blur1")
+      blur1.style.animation = "blurfade 1s 1 ";
+      
+      var blur2 = document.getElementById("blur2")
+      blur2.style.animation = "blurfade 1s 1 ";
+      
+      var ig2 = document.getElementById("ig2")
+      ig2.style.animation = "blurfade 1s 1 ";
+    
+      const container = document.getElementsByClassName("container")
+      container[0].style.animation = "play 1s 1 forwards ";
+      
+      var img1 = document.getElementById("img1")
+      img1.style.animation = "blurfade 1s 1 ";
+      
+      var img2 = document.getElementById("img2")
+      img2.style.animation = "blurfade 1s 1 ";
+      
+      var h9 = document.getElementById("h9")
+      h9.style.animation = "blurfade 1s 1 ";
+      
+      var h3 = document.getElementById("h3")
+      h3.style.animation = "blurfade 1s 1 ";
+      
+      var img3 = document.getElementById("img3")
+      img3.style.animation = "blurfade 1s 1 ";
+      
+      var ig1 = document.getElementById("ig1")
+      ig1.style.animation = "blurfade 1s 1 ";
+      
+      
+   }
+    
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+function myFunction(){
+  setTimeout(timer, 1500);
+  function timer(){
+    window.open("https://ffshare.garena.com/?region=IND&lang=en&action=ugc_mapdetail&map_code=%23FREEFIRE125911A644EE02025E0E6372E3C5D9C47663&version=OB40");
+    
+    
+  }
+  
+  
+  
+}
+    
+    function openig(){
+      setTimeout(timer2, 1000);
+      function timer2(){
+        window.open("https://instagram.com/jinxx6_6?igshid=ZGUzMzM3NWJiOQ==");
+        
+        
+      }
+      
+      
+    }
+    
+    
+    
+  </script>
+
+</body>
+</html>
